@@ -18,7 +18,9 @@ import pg from "pg";
 
 const port = 4120;
 const app = express();
-const model1 = "gpt-3.5-turbo"; //modelo de openai a utilizar
+//gpt-3.5-turbo
+//gpt-4o-mini
+const model1 = "gpt-4o-mini"; //modelo de openai a utilizar
 
 const pool = new pg.Pool({
 	user: "postgres",
