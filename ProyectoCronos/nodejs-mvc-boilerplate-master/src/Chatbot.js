@@ -18,7 +18,7 @@ import dotenv from "dotenv";
 const port = 4102;
 const app = express();
 const url_of_ngrok = process.env.URL_OF_NGROK;
-
+const modelo = "gpt-4o";
 
 const pool = new pg.Pool({
 	user: "postgres",
@@ -83,7 +83,7 @@ app.post("/chat", async (req, res) => {
         // Envío del mensaje al modelo externo de openai
         if (chatbotId === "1") {
                 const response = await openai.chat.completions.create({
-                    model: "gpt-3.5-turbo",
+                    model: modelo,
                     messages: [{ role: "user", content: message }],
                     max_tokens: 150
                 });
