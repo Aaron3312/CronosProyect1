@@ -257,6 +257,9 @@ app.post("/databases", async function (req, res) {
 	var promptNumberOfTasks =
 		"Genera y dime cuantas tareas tiene el proyecto unicamente genera el numero de tareas nada mas, generalo en formato numerico sin otra palabra!";
 	var NumberOfTasks = await DBsd(readMessages(), promptNumberOfTasks); //numero de tareas del proyecto
+	if (NumberOfTasks > 20) {
+		NumberOfTasks = 20;
+	} //limitamos el numero de tareas a 20
 	projectDetails.NumberOfTasks.push(NumberOfTasks);
 
 	//generamos la primera tarea del proyecto ########################################
