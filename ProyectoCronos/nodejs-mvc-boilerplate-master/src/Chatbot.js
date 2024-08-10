@@ -84,7 +84,8 @@ app.post("/chat", async (req, res) => {
         if (chatbotId === "1") {
                 const response = await openai.chat.completions.create({
                     model: modelo,
-                    messages: [{ role: "user", content: message }],
+                    messages: [{ role: "system", content: "te voy a dar instrucciones, contestalas de manera correcta, y consisa en español, tu nombre es CronosAI" },
+                        { role: "user", content: message }],
                     max_tokens: 150
                 });
                 console.log("Respuesta del modelo:");
