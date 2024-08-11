@@ -464,9 +464,15 @@ async function dbGenerator(response1, pageId, ded) {
 
 //funcion para generar las paginas de las tareas
 async function pageGenerator(response2, pageId, response_T1, dueDate) {
-	//medimos la longitud de la respuesta para limitarla a 2000 caracteres
-	response2 = response2.substring(0, 2000);
-	response_T1 = response_T1.substring(0, 2000);
+	//generamos un if para que si la respuesta es mayor a 2000 caracteres la corte y la parta en dos peticones utilizando la misma funcion
+	if (response_T1.length > 2000) {
+		var response_T1_1 = response_T1.slice(0, 2000);
+		var response_T1_2 = response_T1.slice(2000, response_T1.length);
+		var response2_1 = response2 + " Parte 2";
+		//mandamos llamar la funcion para generar la pagina de la tarea en dos partes
+		var page1 = await pageGenerator1(response2, pageId, response_T1_1, dueDate);
+		var page2 = await pageGenerator1(response2_1, pageId, response_T1_2, dueDate);
+	} else {
 	try {
 		const newPage = await notion.pages.create({
 			parent: {
@@ -507,7 +513,7 @@ async function pageGenerator(response2, pageId, response_T1, dueDate) {
 		return { message: "success!", data: newPage };
 	} catch (error) {
 		return { message: "error", error };
-	}
+	}}
 }
 
 //funcion para generar el nombre de la base de datos a partir de la respuesta del usuario + ?
