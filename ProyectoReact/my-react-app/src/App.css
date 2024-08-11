@@ -5,6 +5,14 @@
   text-align: center;
 }
 
+ul {
+  list-style:decimal-leading-zero;
+}
+
+.redded {
+  color: #ff0000;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
