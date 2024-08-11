@@ -11,6 +11,7 @@ function KApp(){
             <Note />
             <Note />
             <Note />
+
         </div>
     )
 }
