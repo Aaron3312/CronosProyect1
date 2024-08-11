@@ -24,4 +24,13 @@ function app2(){
     )
 }
 
-export default app2
+function Dead(){
+    return (
+        <div>
+            <h1>Dead</h1>
+        </div>
+    )
+}
+
+export default app2;
+export { Dead};
