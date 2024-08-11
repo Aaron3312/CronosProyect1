@@ -471,7 +471,7 @@ async function pageGenerator(response2, pageId, response_T1, dueDate) {
 		var response2_1 = response2 + " Parte 2";
 		//mandamos llamar la funcion para generar la pagina de la tarea en dos partes
 		var page1 = await pageGenerator1(response2, pageId, response_T1_1, dueDate);
-		var page2 = await pageGenerator1(response2_1, pageId, response_T1_2, dueDate);
+		//var page2 = await pageGenerator1(response2_1, pageId, response_T1_2, dueDate);
 	} else {
 	try {
 		const newPage = await notion.pages.create({
