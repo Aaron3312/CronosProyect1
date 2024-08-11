@@ -112,6 +112,93 @@ router.get("/cronos1", checkNotAuthenticated ,function (request, response) {
 	});
 });
 
+router.get("/ProyectCalendar", checkNotAuthenticated ,async function (request, response) {
+	var userId = request.user.id;
+	var proyectIds = request.query.projectId;
+	console.log("ProyectCalendar");
+	console.log(userId);
+	console.log(proyectIds);
+		try {
+			var calendarCronos = await fetch("http://localhost:4120/calendar", {
+			  method: "POST",
+			  headers: {
+				"Content-Type": "application/json",
+			  },
+			  body: JSON.stringify({ userId }),
+			});
+			// Convertir la respuesta a JSON
+			var calendarData = await calendarCronos.json();
+			var cardat = (JSON.parse(calendarData.steps));
+	  
+			  // Using a Map to filter out unique projects by their name
+			  const uniqueProjects = new Map();
+			  cardat.forEach(cardat => {
+				  if (!uniqueProjects.has(cardat.proyecto_nombre)) {
+					  uniqueProjects.set(cardat.proyecto_nombre, cardat);
+				  }
+			  });
+	  
+			  // Convert Map values to an array
+			  const uniqueProjectList = Array.from(uniqueProjects.values());
+			  
+			console.log(cardat);
+			console.log("uniqueProjects: ")
+			console.log(uniqueProjectList);
+			console.log("fetching calendar data:");
+			
+			console.log("ProyectCalendar");
+			console.log(calendarData);
+
+
+			console.log("ProyectCalendar2");
+			console.log(calendarData.steps);
+
+			var calendarDatas = JSON.parse(calendarData.steps);
+
+			console.log("ProyectCalendar");
+			console.log(calendarDatas);
+
+			console.log("filteredData");
+			console.log(proyectIds);
+			const filteredData = calendarDatas.filter(item => item.proyecto_id == proyectIds);
+			console.log(filteredData);
+
+			//conver filteredData to JSON
+			var filteredData2 = JSON.stringify(filteredData);
+
+			console.log("filteredData2");
+			console.log(filteredData2);
+
+			response.render("index3.ejs", {
+			  usuario1: request.user.name,
+			  calendar: "active",
+			  userIds23: calendarData.userId,
+			  user_id1: request.user.id,
+			  proyects: "desactive",
+			  calendarCronos: filteredData2, // Asumiendo que 'steps' es la clave en la respuesta JSON
+			  ProyectsName: uniqueProjectList,
+			  chat: "desactive",
+			  CalendarProyectSelected: proyectIds
+			});
+	  
+	  
+		  } catch (error) {
+			console.error("Error fetching calendar data:", error);
+			response.status(500).render("index3.ejs", {
+			  usuario1: request.user.name,
+			  calendar: "desactive",
+			  user_id1: request.user.id,
+			  proyects: "desactive",
+			  calendarCronos: "Error fetching calendar data.",
+			  chat: "desactive",
+	  
+			});
+		}
+	});
+	
+
+
+
 router.get("/calendar", checkNotAuthenticated, async function (request, response) {
 	//ruta principal
 	var userId = request.user.id;

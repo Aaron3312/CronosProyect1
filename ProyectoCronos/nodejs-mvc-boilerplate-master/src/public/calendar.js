@@ -1,7 +1,4 @@
 
-
-
-
 // SIDEBAR TOGGLE ############################################
 document.addEventListener("DOMContentLoaded", function(event) {
    
@@ -42,6 +39,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	 // Your code to run since DOM is loaded and ready
 	});
 // SIDEBAR TOGGLE ############################################
+
+
+
+
+
 
 function convertToEvents(calendarCronos, userId, projectId = null) {
   if (!Array.isArray(calendarCronos)) {
@@ -152,3 +154,26 @@ const calendar4 = new FullCalendar.Calendar(calendarEl3, {
 });
 
 
+
+document.getElementById('projectSelectC').addEventListener('change', function() {
+    const selectedValue = this.value;
+    const selectedText = this.options[this.selectedIndex].text;
+
+    // Guarda el proyecto seleccionado en localStorage
+    localStorage.setItem('selectedProjectId', selectedValue);
+    localStorage.setItem('selectedProjectName', selectedText);
+
+    // You can send the selectedValue to the server or update the UI here
+    // Example: Making an AJAX request to update something on the server
+    window.location.href = `/ProyectCalendar?projectId=${selectedValue}`;
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const selectElement = document.getElementById('projectSelectC');
+    const savedProjectId = localStorage.getItem('selectedProjectId');
+
+    // Si existe un proyecto seleccionado guardado, seleccionarlo en el dropdown
+    if (savedProjectId) {
+      selectElement.value = savedProjectId;
+    }
+  });

@@ -1,23 +1,28 @@
-<div class = "upperPart" id = "especialMenu">
-    <div style="margin-left: 0.5rem; margin-top: 0rem;">
-      <div class="Titles1s ">
-        <img class="CalendarLogo" id="dedlogo" src="/buosinback.png" alt="logo"/>
-      </div>
-      <div class="Titles1s sedan-sc-regular proyectosDeCronos">
-        
-        <select class="slide-bar">
-          <option value="task1">Task 1</option>
-          <option value="task2">Task 2</option>
-          <option value="task3">Task 3</option>
-        </select>
-         
-        <p class= "proyectosDeCronos1" style="margin-left: 10%;">Calendario de Cronos</p>
-        <!-- <button id= "buttonForSaveCalendar" class="proyectosDeCronos1" style="font-size: 1rem;">Click to Save to database and show events</button> -->
-
-      </div>
-
+<div class="upperPart" id="especialMenu">
+  <div style="margin-left: 0.5rem; margin-top: 0;">
+    <div class="Titles1s">
+      <img class="CalendarLogo" id="dedlogo" src="/buosinback.png" alt="logo"/>
     </div>
+    <div class="Titles1s sedan-sc-regular proyectosDeCronos">
+      <div class="d-flex">
+        <!-- Sidebar -->
+        <div id="sidebar" class="bg-light border-right p-2" style="width: 300px; margin-left: -10rem;">
+          <h4 class="sidebar-heading">Projects</h4>
+          <select class="form-select mt-3" style="font-size: 1rem;" id="projectSelectC">
+            <option value="" selected disabled style="font-size: 1rem;">Escoge tu proyecto</option>
+            <% for (let i = 0; i < ProyectsName.length; i++) { %>
+              <option value="<%- ProyectsName[i].proyecto_id %>" style="font-size: 1rem;"> <%- ProyectsName[i].descripcion %></option>
+            <% } %>
+          </select>
+          
+        </div>
+        <!-- Main content -->
+        <p class="proyectosDeCronos1" style="margin-left: 1%;">Calendario de Cronos</p>
+      </div>
+    </div>
+  </div>
 </div>
+
 <div id="calendar23"></div>
 
 <p> </p>
