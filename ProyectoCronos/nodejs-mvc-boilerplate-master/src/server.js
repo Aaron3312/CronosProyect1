@@ -79,6 +79,7 @@ app.post("/getUserIdbyName", async function (req, res) {
 app.post("/calendar", async function (req, res) {
 	console.log("Calendario");
 	var NameUser = req.body.userId;
+	var taskId = req.body.taskId;
 	console.log(NameUser);
   
 	try {

@@ -178,7 +178,7 @@ form button[type="submit"]:hover {
     .buologaso{
         width: 100%; 
         margin-left: 40%; 
-        margin-top: -5rem; 
+        margin-top: -4rem !important; 
     }
     .buoLogo3{
         width: 20rem;
