@@ -25,7 +25,8 @@ function App() {
         <span>emojipedia</span>
       </h1>
       <dl className="dictionary">
-      {emojipedia.filter(filtro).map(createEntry)}
+      {emojipedia.filter(filtro).map(entry => ( <Entry key={entry.id} emoji={entry.emoji} name={entry.name} meaning={entry.meaning} /> ))} 
+      {emojipedia.map(createEntry)}
       </dl>
     </div>
   );

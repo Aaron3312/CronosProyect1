@@ -1,4 +1,12 @@
 
+function minus100(str) {
+  if (str.length > 100) {
+    return str.substring(0, 100) + "..." + " (click to read more)";
+  } else {
+    return str;
+  }
+}
+var x = 30
 function Entry(props) {
   return (
         <div className="term">
@@ -9,7 +17,8 @@ function Entry(props) {
             <span>{props.name}</span>
           </dt>
           <dd>
-            {props.meaning}
+            {minus100(props.meaning)}
+
           </dd>
         </div>
   );
