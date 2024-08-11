@@ -464,6 +464,9 @@ async function dbGenerator(response1, pageId, ded) {
 
 //funcion para generar las paginas de las tareas
 async function pageGenerator(response2, pageId, response_T1, dueDate) {
+	//medimos la longitud de la respuesta para limitarla a 2000 caracteres
+	response2 = response2.substring(0, 2000);
+	response_T1 = response_T1.substring(0, 2000);
 	try {
 		const newPage = await notion.pages.create({
 			parent: {
