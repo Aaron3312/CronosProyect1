@@ -14,6 +14,10 @@ function createEntry(entry) {
   );
 }
 
+function filtro(entry) {
+  return entry.id <= 20 && entry.id >= 15;
+}
+
 function App() {
   return (
     <div>
@@ -21,7 +25,7 @@ function App() {
         <span>emojipedia</span>
       </h1>
       <dl className="dictionary">
-      {emojipedia.map(createEntry)}
+      {emojipedia.filter(filtro).map(createEntry)}
       </dl>
     </div>
   );
