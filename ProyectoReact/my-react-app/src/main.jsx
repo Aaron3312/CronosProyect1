@@ -12,14 +12,24 @@ function Cards3(props) {
   )
 }
 
+function CardAnimal(animals){
+  return (
+    <Card 
+    key= {animals} 
+    title={animals}
+    content={descriptions[animals.indexOf(animals)]} />
+  )
+}
+//    <p> {animals.map(CardAnimal)}</p>
+
+//generamos una lista de nombres de animales y otra de sus descripciones
+const animals = ['burro', 'gato', 'perro', 'elefante', 'jirafa']
+const descriptions = ['animal de carga', 'animal doméstico', 'animal doméstico', 'animal salvaje', 'animal salvaje']
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Card title="burro" content="ded"/>
-    <Card title="2" content="ded"/>
-    <Card title="bur32ro" content="ded"/>
-    <Card title="burro" content="de32d"/>
     <Cards3 title="burrdsao" content="deddwa"/>
+    
 
-  </StrictMode>,
+  </StrictMode>
 )
