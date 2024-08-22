@@ -6,7 +6,7 @@ import HighlightIcon from "@mui/icons-material/Highlight";
 function Header() {
   return (
     <header>
-      <h1><HighlightIcon />Keeper</h1>
+      <h1><HighlightIcon />Note taker</h1>
     </header>
   );
 }
