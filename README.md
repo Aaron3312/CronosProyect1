@@ -76,5 +76,6 @@ Si tienes preguntas o problemas con Cronos, puedes contactarme directamente en m
 
 ## Créditos y Agradecimientos
 
-Agradecimientos especiales a Fernando Cuevas Arroyo por su participación activa en el desarrollo del sistema de login y su apoyo continuo en el proyecto.
+Agradecimientos especiales a Fernando Cuevas Arroyo por su participación activa en el desarrollo del sistema de login y a Jorge Arizpe por su ayuda en el area de testing y a ambos por su apoyo continuo en el proyecto.
+
 
